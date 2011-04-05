@@ -30,9 +30,10 @@ public class PokemonController {
   }
 
   @RequestMapping("/")
-  public String helloWorld() {
-    return "Hello World from Spring Boot";
-  }
+  public String[] helloWorld() {
+    // do something to get list of pokemon maybe paged
+    List<String[]> lister = CsvParser.test();
+    return lister.get(30);  }
 
   @GetMapping("/pokemonList")
   public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException {
