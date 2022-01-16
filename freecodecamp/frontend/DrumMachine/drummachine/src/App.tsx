@@ -10,7 +10,7 @@ function App() {
       <div className="App-header">
         {
           [...Array(NUM_DRUMS)].map(index => {
-              return <DrumBlock drumName={DRUMS[index]?.name || 'DRUM0'} key={`drumblock_${index}`}/>
+              return <DrumBlock drumSound='doremifa solatido' drumName={DRUMS[index]?.name || 'DRUM0'} key={`drumblock_${index}`}/>
           })
         }
       </div>
