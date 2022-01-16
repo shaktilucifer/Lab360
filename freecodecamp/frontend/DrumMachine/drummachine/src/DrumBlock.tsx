@@ -1,5 +1,6 @@
 import React from 'react';
-
+import './Drumblock.css'
 export function DrumBlock() {
-    return <div>drumblock</div>
+    return <div className='block'>drumblock</div>
 }
+
