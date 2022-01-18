@@ -5,4 +5,18 @@
     text-align: center;
     text-overflow: ellipsis;
     overflow: hidden;
+    border-radius: 4px;
+    margin: 10px;
+}
+
+.wisteria {
+    background-color: #8e44ad;
+}
+
+.belize {
+    background-color: #2980b9;
+}
+
+.midnight-blue {
+    background-color: #2c3e50;
 }
