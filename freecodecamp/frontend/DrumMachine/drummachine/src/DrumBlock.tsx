@@ -1,7 +1,14 @@
 import React from 'react';
 import './Drumblock.css'
 export function DrumBlock({drumName, drumSound, colorClass}: DrumBlockProps) {
-    return <div className={'block'}>{drumName},{drumSound}</div>
+
+    const playDrum = () => {
+        // play sound
+    }
+
+    return (<>
+    <button onClick={() => playDrum} className={'block'}>{drumName},{drumSound}</button>
+    </>);
 }
 
 interface DrumBlockProps {
