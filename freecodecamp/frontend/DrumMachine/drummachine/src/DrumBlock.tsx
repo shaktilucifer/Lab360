@@ -7,7 +7,7 @@ export function DrumBlock({drumName, drumSound, colorClass}: DrumBlockProps) {
     }
 
     return (<>
-    <button onClick={() => playDrum} className={'block'}>{drumName},{drumSound}</button>
+    <button onClick={() => playDrum} className={`block ${colorClass}`}>{drumName},{drumSound}</button>
     </>);
 }
 
