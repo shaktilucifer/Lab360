@@ -6,9 +6,9 @@ export function DrumBlock({drumName, drumSound, colorClass}: DrumBlockProps) {
         // play sound
     }
 
-    return (<>
-    <button onClick={() => playDrum} className={`block ${colorClass}`}>{drumName},{drumSound}</button>
-    </>);
+    return (<div>
+        <button onClick={() => playDrum} className={`block ${colorClass}`}>{drumName},{drumSound}</button>
+    </div>);
 }
 
 interface DrumBlockProps {
