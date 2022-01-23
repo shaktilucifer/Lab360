@@ -1,6 +1,6 @@
-import goodOpenHat from '../sounds/good_open_hat.mp3';
-import sharpOpenHat from '../sounds/sharp_open_hat.mp3';
-import subtleHiHat from '../sounds/subtle_hi_hat.mp3';
+import goodOpenHat from '../..//sounds/good_open_hat.mp3';
+import sharpOpenHat from '../../sounds/sharp_open_hat.mp3';
+import subtleHiHat from '../../sounds/subtle_hi_hat.mp3';
 
 export const NUM_DRUMS = 6;
 
