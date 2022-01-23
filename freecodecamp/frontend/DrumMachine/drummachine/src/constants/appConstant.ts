@@ -10,7 +10,7 @@ export enum DRUM_COLORS {
     BELIZE = 'belize',
 }
 
-export const DRUMS = [
+export const DRUMS: Drums[] = [
     {name: 'drum1', color: DRUM_COLORS.BELIZE, audio: goodOpenHat},
     {name: 'drum2', color: DRUM_COLORS.MIDNIGHT, audio: sharpOpenHat},
     {name: 'drum3', color: DRUM_COLORS.WISTERIA, audio: subtleHiHat}, 
@@ -19,3 +19,8 @@ export const DRUMS = [
     {name: 'drum6', color: DRUM_COLORS.BELIZE, audio: goodOpenHat}
 ]
 
+export interface Drums {
+    name: string;
+    color: string;
+    audio: string;
+}

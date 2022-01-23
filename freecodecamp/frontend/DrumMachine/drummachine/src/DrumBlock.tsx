@@ -3,7 +3,6 @@ import "./Drumblock.css";
 export function DrumBlock({ drumName, drumSound, colorClass }: DrumBlockProps) {
   const playDrum = () => {
     // play sound
-    console.log(drumSound);
     var music = new Audio(drumSound);
     music.play();
   };
@@ -11,7 +10,7 @@ export function DrumBlock({ drumName, drumSound, colorClass }: DrumBlockProps) {
   return (
     <div>
       <button onClick={playDrum} className={`block ${colorClass}`}>
-        {drumName},{drumSound}
+        {drumName}
       </button>
     </div>
   );
