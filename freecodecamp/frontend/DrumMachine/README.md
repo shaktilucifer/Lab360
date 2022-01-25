@@ -3,3 +3,4 @@ https://www.freecodecamp.org/learn/front-end-development-libraries/front-end-dev
 
 Worklog:
 More sounds and better ui layout!
+New flat colors
