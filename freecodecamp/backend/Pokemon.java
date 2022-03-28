@@ -1,12 +1,22 @@
 class Pokemon {
     class Ability {
+        private String name;
+        private Type type;
 
+        public Ability(String name, Type type) {
+            this.name = name;
+            this.type = type;
+        }
     }
 
     class Move {
         private String name;
-        private
+        private Type type;
 
+        public Move(String name, Type type) {
+            this.name = name;
+            this.type = type;
+        }
     }
 
     enum Type {
@@ -17,7 +27,17 @@ class Pokemon {
         DARK,
         FIRE,
         GRASS,
-        FLYING
+        FLYING,
+        FAIRY,
+        BUG,
+        STEEL,
+        ICE,
+        FIGHTING,
+        POISON,
+        ROCK,
+        DRAGON,
+        GROUND,
+        NORMAL
     }
 
     List<Ability> abilities;
