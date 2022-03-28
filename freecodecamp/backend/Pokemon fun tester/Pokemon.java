@@ -19,7 +19,7 @@ class Pokemon {
         }
     }
 
-    enum Type {
+    private enum Type {
         ELECTRIC,
         WATER,
         PSYCHIC,
