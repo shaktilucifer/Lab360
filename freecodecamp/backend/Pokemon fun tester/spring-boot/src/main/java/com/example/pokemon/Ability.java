@@ -1,8 +1,8 @@
 class Ability {
     private String name;
-    private String type;
+    private PokemonType type;
 
-    public Ability(String name, String type) {
+    public Ability(String name, PokemonType type) {
         this.name = name;
         this.type = type;
     }
