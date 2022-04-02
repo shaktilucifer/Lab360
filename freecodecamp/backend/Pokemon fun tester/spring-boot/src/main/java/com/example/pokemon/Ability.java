@@ -1,3 +1,5 @@
+package com.example.pokemon;
+
 class Ability {
     private String name;
     private PokemonType type;
