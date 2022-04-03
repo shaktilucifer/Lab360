@@ -15,6 +15,7 @@ class CsvParser {
     // do some parsing on Pokemon Data next
     public static List<String[]> test() throws IOException, URISyntaxException, CsvException {
         // fix is
+        System.out.println(ClassLoader.getSystemResource("/static/pokemon.csv"));
         Reader reader = Files.newBufferedReader(Paths.get(
             ClassLoader.getSystemResource("/static/pokemon.csv").toURI()));
         CSVReader csvReader = new CSVReader(reader);
