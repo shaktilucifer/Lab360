@@ -21,13 +21,13 @@ public class PokemonController {
     }
 
     @GetMapping("/pokemonList") 
-    public List<Pokemon> getPokemonList() throws IOException, URISyntaxException, CsvException{
+    public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException{
       // do something to get list of pokemon maybe paged
       List<String[]> lister = CsvParser.test();
       for(String[] st: lister) {
         System.out.println(st);
       }
-      return new LinkedList<>();
+      return lister;
     }
 
     @GetMapping("/ability")
