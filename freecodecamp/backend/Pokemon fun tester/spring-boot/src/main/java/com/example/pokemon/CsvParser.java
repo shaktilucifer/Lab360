@@ -1,17 +1,27 @@
 package com.example.pokemon;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
+import java.io.IOException;
+import java.io.Reader;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.opencsv.CSVReader;
+import com.opencsv.exceptions.CsvException;
 
 class CsvParser {
     // do some parsing on Pokemon Data next
-    public static void test() {
+    public static List<String[]> test() throws IOException, URISyntaxException, CsvException {
         // fix is
-        BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-CSVParser csvParser = new CSVParser(fileReader, CSVFormat.DEFAULT);
-Iterable<CSVRecord> csvRecords = csvParser.getRecords();
+        Reader reader = Files.newBufferedReader(Paths.get(
+            ClassLoader.getSystemResource("/static/pokemon.csv").toURI()));
+        CSVReader csvReader = new CSVReader(reader);
+        List<String[]> list = new ArrayList<>();
+        list = csvReader.readAll();
+        reader.close();
+        csvReader.close();
+        return list;
     }
 }

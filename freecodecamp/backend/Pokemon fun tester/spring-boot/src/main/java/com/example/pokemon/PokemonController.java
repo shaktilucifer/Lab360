@@ -1,7 +1,11 @@
 package com.example.pokemon;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.LinkedList;
 import java.util.List;
+
+import com.opencsv.exceptions.CsvException;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +21,12 @@ public class PokemonController {
     }
 
     @GetMapping("/pokemonList") 
-    public List<Pokemon> getPokemonList(){
+    public List<Pokemon> getPokemonList() throws IOException, URISyntaxException, CsvException{
       // do something to get list of pokemon maybe paged
+      List<String[]> lister = CsvParser.test();
+      for(String[] st: lister) {
+        System.out.println(st);
+      }
       return new LinkedList<>();
     }
 
