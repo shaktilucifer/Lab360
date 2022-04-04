@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { DrumBlock } from './DrumBlock';
 import { Drums, DRUMS, NUM_DRUMS } from './constants/appConstant';

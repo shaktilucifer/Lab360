@@ -15,27 +15,32 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PokemonController {
 
-    @RequestMapping("/")
-    public String helloWorld(){
-      return "Hello World from Spring Boot";
+  @RequestMapping("/")
+  public String helloWorld() {
+    return "Hello World from Spring Boot";
+  }
+
+  @GetMapping("/pokemonList")
+  public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException {
+    // do something to get list of pokemon maybe paged
+    List<String[]> lister = CsvParser.test();
+    return lister;
+  }
+
+  @GetMapping("/pokemonListHeaders")
+  public String[] getPokemonHeaders() throws Exception {
+
+    List<String[]> pokemonList = CsvParser.test();
+    if (pokemonList == null || pokemonList.size() == 0) {
+      return null;
     }
 
-    @GetMapping("/pokemonList") 
-    public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException{
-      // do something to get list of pokemon maybe paged
-      List<String[]> lister = CsvParser.test();
-      return lister;
-    }
+    return CsvParser.test().get(0);
+  }
 
-    @GetMapping("/pokemonListHeaders")
-    public String[] getPokemonHeaders() throws Exception{
-      return CsvParser.test().get(0);
-    }
- 
+  @GetMapping("/ability")
+  public List<Pokemon> getAbility(@RequestParam String id, @RequestParam(required = false) String pokemonName) {
+    return new LinkedList<>();
+  }
 
-    @GetMapping("/ability")
-    public List<Pokemon> getAbility(@RequestParam String id, @RequestParam(required = false) String pokemonName) {
-        return new LinkedList<>();
-    }
-    
 }
