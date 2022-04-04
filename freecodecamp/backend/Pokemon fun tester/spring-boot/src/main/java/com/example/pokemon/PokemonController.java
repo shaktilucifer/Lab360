@@ -24,11 +24,14 @@ public class PokemonController {
     public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException{
       // do something to get list of pokemon maybe paged
       List<String[]> lister = CsvParser.test();
-      for(String[] st: lister) {
-        System.out.println(st);
-      }
       return lister;
     }
+
+    @GetMapping("/pokemonListHeaders")
+    public String[] getPokemonHeaders() throws Exception{
+      return CsvParser.test().get(0);
+    }
+ 
 
     @GetMapping("/ability")
     public List<Pokemon> getAbility(@RequestParam String id, @RequestParam(required = false) String pokemonName) {
