@@ -35,7 +35,21 @@ public class PokemonController {
       return null;
     }
 
-    return CsvParser.test().get(0);
+    return pokemonList.get(0);
+  }
+
+  @GetMapping("/pokemon")
+  public String[] getPokemon(@RequestParam String pokemonName) throws Exception {
+    List<String[]> pokemonList = CsvParser.test();
+    if (pokemonList == null || pokemonList.size() == 0) {
+      return null;
+    }
+
+    for(String[] pokemonAttributes: pokemonList) {
+      System.out.println(pokemonAttributes);
+    }
+
+    return pokemonList.get(0);
   }
 
   @GetMapping("/ability")
