@@ -2,8 +2,12 @@ package com.example.pokemon;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
 
 import com.opencsv.exceptions.CsvException;
 
@@ -14,6 +18,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class PokemonController {
+
+  private static Map<String, String[]> pokemonMap = new HashMap<>();
+
+  @PostConstruct
+  private void buildPokemonMap() throws IOException, URISyntaxException, CsvException {
+    List<String[]> pokemonList = CsvParser.test();
+    for(String[] pokemon: pokemonList) {
+      pokemonMap.put(pokemon[30].toLowerCase(), pokemon);
+    }
+  }
 
   @RequestMapping("/")
   public String helloWorld() {
@@ -42,15 +56,9 @@ public class PokemonController {
 
   @GetMapping("/pokemon")
   public String[] getPokemon(@RequestParam String pokemonName) throws Exception {
-    List<String[]> pokemonList = CsvParser.test();
-    System.out.println(pokemonName);
-    System.out.println(pokemonList.size());
-    if (pokemonList == null || pokemonList.size() == 0) {
-      return null;
-    }
-    String[] pokemon = pokemonList.stream().filter( i -> i[30].equalsIgnoreCase(pokemonName)).findAny().orElse(null);
 
-    return pokemon;
+    // String[] pokemon = pokemonList.stream().filter( i -> i[30].equalsIgnoreCase(pokemonName)).findAny().orElse(null);
+    return pokemonMap.get(pokemonName.toLowerCase());
   }
 
   @GetMapping("/ability")
