@@ -58,8 +58,6 @@ public class PokemonController {
 
   @GetMapping("/pokemon")
   public String[] getPokemon(@RequestParam String pokemonName) throws Exception {
-
-    // String[] pokemon = pokemonList.stream().filter( i -> i[30].equalsIgnoreCase(pokemonName)).findAny().orElse(null);
     return pokemonMap.get(pokemonName.toLowerCase());
   }
 
