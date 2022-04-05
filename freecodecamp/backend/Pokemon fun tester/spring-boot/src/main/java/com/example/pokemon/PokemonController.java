@@ -35,21 +35,22 @@ public class PokemonController {
       return null;
     }
 
+    System.out.println(pokemonList.get(0)[30]);
+
     return pokemonList.get(0);
   }
 
   @GetMapping("/pokemon")
   public String[] getPokemon(@RequestParam String pokemonName) throws Exception {
     List<String[]> pokemonList = CsvParser.test();
+    System.out.println(pokemonName);
+    System.out.println(pokemonList.size());
     if (pokemonList == null || pokemonList.size() == 0) {
       return null;
     }
+    String[] pokemon = pokemonList.stream().filter( i -> i[30].equalsIgnoreCase(pokemonName)).findAny().orElse(null);
 
-    for(String[] pokemonAttributes: pokemonList) {
-      System.out.println(pokemonAttributes);
-    }
-
-    return pokemonList.get(0);
+    return pokemon;
   }
 
   @GetMapping("/ability")
