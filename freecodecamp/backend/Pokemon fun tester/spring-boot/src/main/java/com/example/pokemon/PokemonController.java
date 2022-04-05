@@ -30,10 +30,11 @@ public class PokemonController {
   }
 
   @RequestMapping("/")
-  public String[] helloWorld() {
+  public String[] helloWorld() throws IOException, URISyntaxException, CsvException {
     // do something to get list of pokemon maybe paged
     List<String[]> lister = CsvParser.test();
-    return lister.get(30);  }
+    return lister.get(30); 
+   }
 
   @GetMapping("/pokemonList")
   public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException {
@@ -60,11 +61,6 @@ public class PokemonController {
 
     // String[] pokemon = pokemonList.stream().filter( i -> i[30].equalsIgnoreCase(pokemonName)).findAny().orElse(null);
     return pokemonMap.get(pokemonName.toLowerCase());
-  }
-
-  @GetMapping("/ability")
-  public List<Pokemon> getAbility(@RequestParam String id, @RequestParam(required = false) String pokemonName) {
-    return new LinkedList<>();
   }
 
 }
