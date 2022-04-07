@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 public class PokemonDataBuilder {
 
     public static final Integer POKEMON_NAME_COLUMN = 30;
+    public static final Integer POKEMON_HEADER_COLUMN = 1;
 
     static Map<String, String[]> pokemonDetailsMap = new HashMap<>();
     static List<String[]> pokemonCSVList = new LinkedList<>();

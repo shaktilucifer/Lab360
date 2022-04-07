@@ -24,30 +24,26 @@ public class PokemonController {
 
 
   @RequestMapping("/")
-  public String[] helloWorld() throws IOException, URISyntaxException, CsvException {
-    // do something to get list of pokemon maybe paged
-
-    return PokemonDataBuilder.getPokemonList().get(PokemonDataBuilder.POKEMON_NAME_COLUMN); 
+  public String[] helloWorld() throws Exception {
+    return PokemonDataBuilder.getPokemonList().get(0); 
    }
 
   @GetMapping("/pokemonList")
   public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException {
-    // do something to get list of pokemon maybe paged
-    List<String[]> lister = CsvParser.test();
-    return lister;
+    return PokemonDataBuilder.getPokemonList();
   }
 
   @GetMapping("/pokemonListHeaders")
   public String[] getPokemonHeaders() throws Exception {
 
-    List<String[]> pokemonList = CsvParser.test();
+    List<String[]> pokemonList = PokemonDataBuilder.getPokemonList());
     if (pokemonList == null || pokemonList.size() == 0) {
       return null;
     }
 
-    System.out.println(pokemonList.get(0)[30]);
+    System.out.println(pokemonList.get(0)[PokemonDataBuilder.POKEMON_NAME_COLUMN]);
 
-    return pokemonList.get(0);
+    return pokemonList.get(PokemonDataBuilder.POKEMON_HEADER_COLUMN);
   }
 
   @GetMapping("/pokemon")
