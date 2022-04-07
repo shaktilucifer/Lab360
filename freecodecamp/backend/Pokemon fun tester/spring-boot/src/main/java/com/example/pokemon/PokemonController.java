@@ -19,21 +19,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class PokemonController {
 
-  private static Map<String, String[]> pokemonMap = new HashMap<>();
 
-  @PostConstruct
-  private void buildPokemonMap() throws IOException, URISyntaxException, CsvException {
-    List<String[]> pokemonList = CsvParser.test();
-    for(String[] pokemon: pokemonList) {
-      pokemonMap.put(pokemon[30].toLowerCase(), pokemon);
-    }
-  }
+  private static Map<String, String[]> pokemonMap = PokemonDataBuilder.getPokemonMap();
+
 
   @RequestMapping("/")
   public String[] helloWorld() throws IOException, URISyntaxException, CsvException {
     // do something to get list of pokemon maybe paged
-    List<String[]> lister = CsvParser.test();
-    return lister.get(30); 
+
+    return PokemonDataBuilder.getPokemonList().get(PokemonDataBuilder.POKEMON_NAME_COLUMN); 
    }
 
   @GetMapping("/pokemonList")
