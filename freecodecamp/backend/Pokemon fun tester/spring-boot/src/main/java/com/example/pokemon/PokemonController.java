@@ -50,5 +50,6 @@ public class PokemonController {
   public String[] getPokemon(@RequestParam String pokemonName) throws Exception {
     return pokemonMap.get(pokemonName.toLowerCase());
   }
+  
 
 }
