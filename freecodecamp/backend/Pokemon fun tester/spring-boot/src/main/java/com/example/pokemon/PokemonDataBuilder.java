@@ -7,6 +7,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import com.example.pokemon.interfaces.PokemonDataParser;
+
 public class PokemonDataBuilder {
 
     public static final Integer POKEMON_NAME_COLUMN = 30;
@@ -14,10 +16,10 @@ public class PokemonDataBuilder {
 
     static Map<String, String[]> pokemonDetailsMap = new HashMap<>();
     static List<String[]> pokemonCSVList = new LinkedList<>();
-
+    static PokemonParserOpenCsv pokemonParserOpenCsv = PokemonParserOpenCsv.getInstance();
     @PostConstruct
     private void buildPokemonMap() throws Exception {
-      pokemonCSVList = CsvParser.test();
+      pokemonCSVList = pokemonParserOpenCsv.getRawPokemonData();
       
       for(String[] pokemon: pokemonCSVList) {
         pokemonDetailsMap.put(pokemon[30].toLowerCase(), pokemon);
