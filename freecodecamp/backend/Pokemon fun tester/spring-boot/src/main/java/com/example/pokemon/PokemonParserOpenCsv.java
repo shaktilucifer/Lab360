@@ -1,11 +1,11 @@
+package com.example.pokemon;
+
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -25,14 +25,14 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
 
     }
 
-    PokemonParserOpenCsv(String fileName) {
+    PokemonParserOpenCsv(String fileName) throws Exception{
         this.fileName = fileName;
         loadResources();
     }
 
     public static PokemonParserOpenCsv getInstance() {
         if(pokemonParser == null) {
-            pokemonParser = new PokemonParserOpenCsv()
+            pokemonParser = new PokemonParserOpenCsv();
         }
         return pokemonParser;
     }
@@ -45,11 +45,11 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     /**
      * load all the csv data from the file here
      */
-    private void loadResources() {
+    private void loadResources() throws Exception {
         rawPokemonList = parseCSV("resources/" + fileName);
     }
 
-    public List<String[]> parseCSV(String fileToParse) {
+    public List<String[]> parseCSV(String fileToParse) throws Exception{
         Reader reader = Files.newBufferedReader(Paths.get(
                 ClassLoader.getSystemResource(fileToParse).toURI()));
         CSVReader csvReader = new CSVReader(reader);
@@ -66,8 +66,11 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
 
     @Override
     public List<Pokemon> getPokemonList() {
-        // TODO Auto-generated method stub
-        return null;
+        List<Pokemon> pokemons = new LinkedList<>();
+        for (String[] pokemonRawRow : getRawPokemonData()) {
+            pokemons.add(new Pokemon(pokemonRawRow[POKEMON_HEADER_COLUMN], pokemonRawRow[2]));
+        }
+        return pokemons;
     }
 
     @Override

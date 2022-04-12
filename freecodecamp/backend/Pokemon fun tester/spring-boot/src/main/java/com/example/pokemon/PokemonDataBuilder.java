@@ -7,8 +7,6 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import com.example.pokemon.interfaces.PokemonDataParser;
-
 public class PokemonDataBuilder {
 
     public static final Integer POKEMON_NAME_COLUMN = 30;
