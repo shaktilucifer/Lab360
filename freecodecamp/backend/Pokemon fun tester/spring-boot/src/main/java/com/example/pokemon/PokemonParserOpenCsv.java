@@ -22,10 +22,10 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     private static PokemonParserOpenCsv pokemonParser;
 
     PokemonParserOpenCsv() {
-
+        loadResources();
     }
 
-    PokemonParserOpenCsv(String fileName) throws Exception{
+    PokemonParserOpenCsv(String fileName) {
         this.fileName = fileName;
         loadResources();
     }
@@ -45,8 +45,13 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     /**
      * load all the csv data from the file here
      */
-    private void loadResources() throws Exception {
-        rawPokemonList = parseCSV("resources/" + fileName);
+    private void loadResources() {
+        try {
+            rawPokemonList = parseCSV("resources/" + fileName);            
+        } catch (Exception e) {
+            // TODO logger 
+            System.out.println("log error parsing resources");
+        }
     }
 
     public List<String[]> parseCSV(String fileToParse) throws Exception{
@@ -57,7 +62,7 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
         list = csvReader.readAll();
         reader.close();
         csvReader.close();
-        System.out.println(list);
+        System.out.println("'TESTER'" + list);
         return list;
     }
 

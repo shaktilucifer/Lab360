@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import com.example.Pokemon;
 import com.opencsv.exceptions.CsvException;
 
@@ -17,7 +19,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class PokemonController {
 
   private static Map<String, String[]> pokemonMap = PokemonDataBuilder.getPokemonMap();
-  private PokemonParserOpenCsv parser = PokemonParserOpenCsv.getInstance();
+  private PokemonParserOpenCsv parser;
+  
+  @PostConstruct
+  private void buildPokemonData() {
+    parser = PokemonParserOpenCsv.getInstance();
+  }
 
   @RequestMapping("/")
   public String[] helloWorld() throws Exception {
