@@ -31,7 +31,8 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     }
 
     public static PokemonParserOpenCsv getInstance() {
-        if(pokemonParser == null) {
+        System.out.println("instance");
+        if (pokemonParser == null) {
             pokemonParser = new PokemonParserOpenCsv();
         }
         return pokemonParser;
@@ -47,14 +48,16 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
      */
     private void loadResources() {
         try {
-            rawPokemonList = parseCSV("resources/" + fileName);            
+            rawPokemonList = parseCSV("resources/" + fileName);
+            System.out.println("filename" + fileName);
+            System.out.println(parseCSV("resources/" + fileName));
         } catch (Exception e) {
-            // TODO logger 
+            // TODO logger
             System.out.println("log error parsing resources");
         }
     }
 
-    public List<String[]> parseCSV(String fileToParse) throws Exception{
+    public List<String[]> parseCSV(String fileToParse) throws Exception {
         Reader reader = Files.newBufferedReader(Paths.get(
                 ClassLoader.getSystemResource(fileToParse).toURI()));
         CSVReader csvReader = new CSVReader(reader);

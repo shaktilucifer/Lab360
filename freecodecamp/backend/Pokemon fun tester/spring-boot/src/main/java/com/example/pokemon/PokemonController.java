@@ -37,8 +37,9 @@ public class PokemonController {
   }
 
   @GetMapping("/pokemons") 
-  public List<Pokemon> getPokemons() {
-    return parser.getPokemonList();
+  public List<String[]> getPokemons() {
+    System.out.println(parser.getRawPokemonData());
+    return parser.getRawPokemonData();
   }
 
   @GetMapping("/pokemonListHeaders")
