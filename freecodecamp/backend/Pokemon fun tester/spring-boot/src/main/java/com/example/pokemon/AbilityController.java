@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class AbilityCOntroller {
+public class AbilityController {
 
 
   private static Map<String, String[]> pokemonMap = PokemonDataBuilder.getPokemonMap();
 
   @GetMapping
   public Map<String, String[]> pokemonABility() {
-      return PokemonDataBuilder
+      return null;
   }
 
 

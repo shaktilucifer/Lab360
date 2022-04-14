@@ -49,8 +49,6 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     private void loadResources() {
         try {
             rawPokemonList = parseCSV("resources/" + fileName);
-            System.out.println("filename" + fileName);
-            System.out.println(parseCSV("resources/" + fileName));
         } catch (Exception e) {
             // TODO logger
             System.out.println("log error parsing resources");
@@ -70,6 +68,12 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     }
 
     public List<String[]> getRawPokemonData() {
+        try {
+            parseCSV(fileName);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return rawPokemonList;
     }
 
