@@ -64,6 +64,7 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
         reader.close();
         csvReader.close();
         System.out.println("'TESTER'" + list);
+        rawPokemonList = list;
         return list;
     }
 
