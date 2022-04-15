@@ -19,6 +19,8 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     private List<String[]> rawPokemonList = new LinkedList<>();
     public static final Integer POKEMON_NAME_COLUMN = 30;
     public static final Integer POKEMON_HEADER_COLUMN = 1;
+    public static final Integer ABILITY_COLUMN = 0;
+
     private static PokemonParserOpenCsv pokemonParser;
 
     PokemonParserOpenCsv() {
@@ -70,7 +72,7 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
 
     public List<String[]> getRawPokemonData() {
         try {
-            parseCSV(fileName);
+           return parseCSV(fileName);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -91,9 +93,9 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     public List<String> getPokemonAbilities() {
         List<String> abilities = new LinkedList<>();
         for (String[] pokemonRawRow : getRawPokemonData()) {
-            pokemons.add());
+            abilities.add(pokemonRawRow[ABILITY_COLUMN]);
         }
-        return pokemons;    
+        return abilities;    
     }
 
 }

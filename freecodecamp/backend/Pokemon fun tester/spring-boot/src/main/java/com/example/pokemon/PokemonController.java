@@ -41,6 +41,11 @@ public class PokemonController {
     return parser.getRawPokemonData();
   }
 
+  @GetMapping("/abilities")
+  public List<String> getAbilities() {
+    return parser.getPokemonAbilities();
+  }
+
   @GetMapping("/pokemonListHeaders")
   public String[] getPokemonHeaders() throws Exception {
 
