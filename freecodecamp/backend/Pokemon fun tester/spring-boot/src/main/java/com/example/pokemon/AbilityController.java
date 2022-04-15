@@ -7,6 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.PostConstruct;
+
 import com.opencsv.exceptions.CsvException;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +19,16 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class AbilityController {
 
+  private PokemonParserOpenCsv parser;
 
-  private static Map<String, String[]> pokemonMap = PokemonDataBuilder.getPokemonMap();
-
-  @GetMapping
-  public Map<String, String[]> pokemonABility() {
-      return null;
+  @PostConstruct
+  private void buildPokemonData() {
+    parser = PokemonParserOpenCsv.getInstance();
   }
 
+  @GetMapping("/abilities")
+  public Map<String, String> getAbilities() {
+    return parser.getPokemonAbilities();
+  }
 
 }
