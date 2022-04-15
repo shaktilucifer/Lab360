@@ -89,8 +89,11 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
 
     @Override
     public List<String> getPokemonAbilities() {
-        // TODO Auto-generated method stub
-        return null;
+        List<String> abilities = new LinkedList<>();
+        for (String[] pokemonRawRow : getRawPokemonData()) {
+            pokemons.add());
+        }
+        return pokemons;    
     }
 
 }
