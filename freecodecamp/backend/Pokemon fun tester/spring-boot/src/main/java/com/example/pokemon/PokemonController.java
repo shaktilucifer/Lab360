@@ -42,7 +42,7 @@ public class PokemonController {
   }
 
   @GetMapping("/abilities")
-  public List<String> getAbilities() {
+  public Map<String, String> getAbilities() {
     return parser.getPokemonAbilities();
   }
 

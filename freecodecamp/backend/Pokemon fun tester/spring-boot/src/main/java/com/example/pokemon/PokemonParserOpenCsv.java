@@ -4,8 +4,10 @@ import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
@@ -90,12 +92,14 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     }
 
     @Override
-    public List<String> getPokemonAbilities() {
+    public Map<String, String> getPokemonAbilities() {
+        Map<String, String> pokemonAbilityMap = new HashMap<>();
         List<String> abilities = new LinkedList<>();
         for (String[] pokemonRawRow : getRawPokemonData()) {
+            pokemonAbilityMap.put(pokemonRawRow[POKEMON_NAME_COLUMN], pokemonRawRow[ABILITY_COLUMN]);
             abilities.add(pokemonRawRow[ABILITY_COLUMN]);
         }
-        return abilities;    
+        return pokemonAbilityMap;
     }
 
 }
