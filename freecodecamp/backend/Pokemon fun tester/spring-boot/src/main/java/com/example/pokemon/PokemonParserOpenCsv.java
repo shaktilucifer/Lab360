@@ -74,7 +74,7 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
 
     public List<String[]> getRawPokemonData() {
         try {
-           return parseCSV(fileName);
+            return parseCSV(fileName);
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
