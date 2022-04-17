@@ -13,9 +13,9 @@ class PokemonParserPokeApi implements PokemonDataParser{
     public List<Pokemon> getPokemonList() {
         RestTemplate restTemplate = new RestTemplate();
         String fooResourceUrl
-          = "http://localhost:8080/spring-rest/foos";
+          = "https://pokeapi.co/api/v2/pokemon?limit=1126/";
         ResponseEntity<String> response
-          = restTemplate.getForEntity(fooResourceUrl + "/1", String.class);
+          = restTemplate.getForEntity(fooResourceUrl, String.class);
         return null;
     }
 
