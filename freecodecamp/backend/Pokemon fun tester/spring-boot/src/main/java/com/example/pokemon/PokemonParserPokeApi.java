@@ -8,6 +8,7 @@ import com.example.pokemon.interfaces.PokemonDataParser;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 
 class PokemonParserPokeApi implements PokemonDataParser{
 
@@ -15,6 +16,11 @@ class PokemonParserPokeApi implements PokemonDataParser{
 
     @Override
     public List<Pokemon> getPokemonList() {
+      WebClient webClient = WebClient.create(POKE_API);
+      webClient.get()
+      .uri("https://petstore.swagger.io/v2/pet/findByStatus?status=available")
+      .retrieve();
+      
         RestTemplate restTemplate = new RestTemplate();
         String fooResourceUrl
           = "https://pokeapi.co/api/v2/pokemon?limit=1126/";
