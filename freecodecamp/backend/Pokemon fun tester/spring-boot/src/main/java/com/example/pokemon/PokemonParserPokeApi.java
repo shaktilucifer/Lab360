@@ -9,6 +9,8 @@ import org.springframework.web.client.RestTemplate;
 
 class PokemonParserPokeApi implements PokemonDataParser{
 
+    private final static String POKE_API = "https://pokeapi.co/api/v2/pokemon?limit=1126/";
+
     @Override
     public List<Pokemon> getPokemonList() {
         RestTemplate restTemplate = new RestTemplate();
