@@ -16,5 +16,15 @@ public class PokemonRecord extends Pokemon {
     int specialDefense;
     int specialAttack;
     int speed;
+
+    PokemonRecord(int HP, int attack, int defense, int specialAttack, int specialDefense, int speed, String name, PokemonType pokemonType) {
+        super(name, pokemonType);
+        this.hitPoints = HP;
+        this.attack = attack;
+        this.defense = defense;
+        this.specialAttack = specialAttack;
+        this.specialDefense = specialDefense;
+        this.speed = speed;
+    }
     
 }
