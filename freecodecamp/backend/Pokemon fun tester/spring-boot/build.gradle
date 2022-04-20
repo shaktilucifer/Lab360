@@ -28,8 +28,8 @@ dependencies {
 }
 
 java {
-    sourceCompatibility = '1.8.0_291'
-    targetCompatibility = '1.8.0_291'
+    sourceCompatibility = '11.0.10'
+    targetCompatibility = '11.0.10'
 }
 
 tasks.named('test') {
