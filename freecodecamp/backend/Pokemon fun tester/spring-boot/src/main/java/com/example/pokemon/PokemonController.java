@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import com.example.Pokemon;
 import com.opencsv.exceptions.CsvException;
 
 import org.springframework.web.bind.annotation.GetMapping;
