@@ -7,7 +7,7 @@ public class Pokemon {
     private PokemonType type;
     private String test;
 
-    protected Pokemon(String name, String test) {
+    public Pokemon(String name, String test) {
         this.name = name;
         this.test = test;
     }

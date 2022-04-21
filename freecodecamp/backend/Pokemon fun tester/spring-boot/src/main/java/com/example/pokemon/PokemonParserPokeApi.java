@@ -3,8 +3,8 @@ package com.example.pokemon;
 import java.util.List;
 import java.util.Map;
 
-import com.example.Pokemon;
 import com.example.pokemon.interfaces.PokemonDataParser;
+import com.example.pokemon.models.Pokemon;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
+import com.example.pokemon.models.Pokemon;
 import com.opencsv.exceptions.CsvException;
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,7 +28,7 @@ public class PokemonController {
 
   @RequestMapping("/")
   public String[] helloWorld() throws Exception {
-    return PokemonDataBuilder.getPokemonList().get(0);
+    return parser.getRawPokemonData().get(0);
   }
 
   @GetMapping("/pokemonList")
@@ -36,8 +37,8 @@ public class PokemonController {
   }
 
   @GetMapping("/pokemons") 
-  public List<String[]> getPokemons() {
-    return parser.getRawPokemonData();
+  public List<Pokemon> getPokemons() {
+    return parser.getPokemonList();
   }
 
   @GetMapping("/pokemonListHeaders")

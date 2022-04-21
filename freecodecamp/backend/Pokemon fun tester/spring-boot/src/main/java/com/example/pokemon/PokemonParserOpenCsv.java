@@ -11,8 +11,8 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 
-import com.example.Pokemon;
 import com.example.pokemon.interfaces.PokemonDataParser;
+import com.example.pokemon.models.Pokemon;
 import com.opencsv.CSVReader;
 
 public class PokemonParserOpenCsv implements PokemonDataParser {
