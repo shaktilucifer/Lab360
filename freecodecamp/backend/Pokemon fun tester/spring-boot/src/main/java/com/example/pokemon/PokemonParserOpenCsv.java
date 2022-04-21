@@ -22,6 +22,12 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     public static final Integer POKEMON_NAME_COLUMN = 30;
     public static final Integer POKEMON_HEADER_COLUMN = 1;
     public static final Integer ABILITY_COLUMN = 0;
+    public static final Integer ATTACK = 19;
+    public static final Integer SP_ATTACK = 34;
+    public static final Integer SPECIAL_DEFENSE = 35;
+    public static final Integer SPEED = 36;
+    public static final Integer DEFENSE = 25;
+    public static final Integer HIT_POINTS = 28;
 
     private static PokemonParserOpenCsv pokemonParser;
 

@@ -2,6 +2,7 @@ package com.example.pokemon;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class PokemonController {
 
   private static Map<String, String[]> pokemonMap = PokemonDataBuilder.getPokemonMap();
   private PokemonParserOpenCsv parser;
-  
+
   @PostConstruct
   private void buildPokemonData() {
     parser = PokemonParserOpenCsv.getInstance();
@@ -31,12 +32,22 @@ public class PokemonController {
     return parser.getRawPokemonData().get(0);
   }
 
+  @RequestMapping("/debug")
+  public Map<Integer, String> headerToNumberMap() {
+    Map<Integer, String> headerToNumberMap = new HashMap<>();
+    int i = 0;
+    for (String headerColumn : parser.getRawPokemonData().get(0)) {
+        headerToNumberMap.put(i++, headerColumn);
+    }
+    return headerToNumberMap;
+  }
+
   @GetMapping("/pokemonList")
   public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException {
     return PokemonDataBuilder.getPokemonList();
   }
 
-  @GetMapping("/pokemons") 
+  @GetMapping("/pokemons")
   public List<Pokemon> getPokemons() {
     return parser.getPokemonList();
   }
