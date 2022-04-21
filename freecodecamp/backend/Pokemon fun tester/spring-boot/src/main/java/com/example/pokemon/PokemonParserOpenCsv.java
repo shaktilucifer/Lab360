@@ -41,7 +41,6 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     }
 
     public static PokemonParserOpenCsv getInstance() {
-        System.out.println("instance");
         if (pokemonParser == null) {
             pokemonParser = new PokemonParserOpenCsv();
         }
@@ -90,7 +89,17 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     public List<Pokemon> getPokemonList() {
         List<Pokemon> pokemons = new LinkedList<>();
         for (String[] pokemonRawRow : getRawPokemonData()) {
-            pokemons.add(new Pokemon(pokemonRawRow[POKEMON_HEADER_COLUMN], pokemonRawRow[2]));
+            pokemons.add(new Pokemon(pokemonRawRow[POKEMON_NAME_COLUMN],
+            PokemonType.BUG,
+            pokemonRawRow[37],
+            Integer.parseInt(pokemonRawRow[HIT_POINTS]),
+            Integer.parseInt(pokemonRawRow[ATTACK]),
+            Integer.parseInt(pokemonRawRow[DEFENSE]),
+            Integer.parseInt(pokemonRawRow[SPECIAL_DEFENSE]),
+            Integer.parseInt(pokemonRawRow[SP_ATTACK]),
+            Integer.parseInt(pokemonRawRow[SPEED])
+            ));
+
         }
         return pokemons;
     }
