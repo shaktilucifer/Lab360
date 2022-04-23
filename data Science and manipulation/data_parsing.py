@@ -2,7 +2,7 @@ import pandas as pd
 import openpyxl
 
 
-def print_hi(name):
+def print_hi():
     xl = pd.ExcelFile("data.xlsx")
     print(xl.sheet_names)
     i = 0
