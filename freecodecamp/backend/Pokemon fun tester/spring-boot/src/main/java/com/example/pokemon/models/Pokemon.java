@@ -4,7 +4,7 @@ import com.example.pokemon.PokemonType;
 
 public class Pokemon {
     private String name;
-    private PokemonType type;
+    private PokemonType[] type;
     private String test;
     private int hitPoints;
     private int attack;
@@ -13,7 +13,7 @@ public class Pokemon {
     private int specialAttack;
     private int speed;
 
-    public Pokemon(String name, PokemonType type, String test, int hitPoints, int attack, int defense,
+    public Pokemon(String name, PokemonType[] type, String test, int hitPoints, int attack, int defense,
             int specialDefense, int specialAttack, int speed) {
         this.name = name;
         this.type = type;
@@ -26,7 +26,7 @@ public class Pokemon {
         this.speed = speed;
     }
 
-    Pokemon(String name, PokemonType pokemonType) {
+    Pokemon(String name, PokemonType[] pokemonType) {
         this.name = name;
         this.type = pokemonType;
     }
@@ -40,7 +40,7 @@ public class Pokemon {
         return name;
     }
 
-    public PokemonType getPokemonType() {
+    public PokemonType[] getPokemonType() {
         return type;
     }
 
@@ -52,12 +52,8 @@ public class Pokemon {
         this.name = name;
     }
 
-    public PokemonType getType() {
+    public PokemonType[] getType() {
         return type;
-    }
-
-    public void setType(PokemonType type) {
-        this.type = type;
     }
 
     public void setTest(String test) {
