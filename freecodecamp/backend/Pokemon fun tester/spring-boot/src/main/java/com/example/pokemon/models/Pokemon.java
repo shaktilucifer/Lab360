@@ -13,6 +13,10 @@ public class Pokemon {
     private int specialAttack;
     private int speed;
 
+    public Pokemon() {
+        
+    }
+
     public Pokemon(String name, PokemonType[] type, String test, int hitPoints, int attack, int defense,
             int specialDefense, int specialAttack, int speed) {
         this.name = name;
