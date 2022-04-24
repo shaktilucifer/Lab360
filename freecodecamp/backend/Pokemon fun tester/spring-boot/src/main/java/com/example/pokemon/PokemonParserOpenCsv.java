@@ -23,9 +23,9 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     public static final Integer POKEMON_HEADER_COLUMN = 1;
     public static final Integer ABILITY_COLUMN = 0;
     public static final Integer ATTACK = 19;
-    public static final Integer SP_ATTACK = 34;
-    public static final Integer SPECIAL_DEFENSE = 35;
-    public static final Integer SPEED = 36;
+    public static final Integer SP_ATTACK = 33;
+    public static final Integer SPECIAL_DEFENSE = 34;
+    public static final Integer SPEED = 35;
     public static final Integer DEFENSE = 25;
     public static final Integer HIT_POINTS = 28;
 
@@ -88,7 +88,10 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     @Override
     public List<Pokemon> getPokemonList() {
         List<Pokemon> pokemons = new LinkedList<>();
+        int i = 0;
         for (String[] pokemonRawRow : getRawPokemonData()) {
+            if(i++ == 0) continue;
+            System.out.println(pokemonRawRow[HIT_POINTS]);
             pokemons.add(new Pokemon(pokemonRawRow[POKEMON_NAME_COLUMN],
                     new PokemonType[] { PokemonType.BUG },
                     pokemonRawRow[37],

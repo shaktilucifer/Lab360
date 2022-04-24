@@ -6,7 +6,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class PokemonUtil {
 
-    public void testMapper() {
+    public static void testMapper() {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             objectMapper.writeValueAsString(new Pokemon());
