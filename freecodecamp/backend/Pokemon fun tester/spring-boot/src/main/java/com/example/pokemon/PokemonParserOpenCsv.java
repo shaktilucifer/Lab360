@@ -15,6 +15,8 @@ import com.example.pokemon.interfaces.PokemonDataParser;
 import com.example.pokemon.models.Pokemon;
 import com.opencsv.CSVReader;
 
+import org.apache.commons.lang3.StringUtils;
+
 public class PokemonParserOpenCsv implements PokemonDataParser {
 
     private String fileName = "pokemon.csv";
@@ -28,6 +30,8 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
     public static final Integer SPEED = 35;
     public static final Integer DEFENSE = 25;
     public static final Integer HIT_POINTS = 28;
+    public static final Integer TYPE1 = 36;
+    public static final Integer TYPE2 = 37;
 
     private static PokemonParserOpenCsv pokemonParser;
 
@@ -90,10 +94,25 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
         List<Pokemon> pokemons = new LinkedList<>();
         int i = 0;
         for (String[] pokemonRawRow : getRawPokemonData()) {
-            if(i++ == 0) continue;
+            if (i++ == 0)
+                continue;
             System.out.println(pokemonRawRow[HIT_POINTS]);
+            PokemonType[] pokemonTypes;
+            try {
+                if (!StringUtils.isEmpty(pokemonRawRow[TYPE2].toUpperCase())) {
+                    pokemonTypes = new PokemonType[] { PokemonType.valueOf(pokemonRawRow[TYPE1].toUpperCase()), PokemonType.valueOf(pokemonRawRow[TYPE2].toUpperCase()) };
+                } else {
+                    pokemonTypes = new PokemonType[] { PokemonType.valueOf(pokemonRawRow[TYPE1].toUpperCase()) };
+                }
+            } catch (Exception e) {
+                System.out.println(pokemonRawRow[TYPE1].toUpperCase());
+                System.out.println(pokemonRawRow[TYPE2].toUpperCase());
+                System.out.println(e);
+                return null;
+                // TODO: handle exception
+            }
             pokemons.add(new Pokemon(pokemonRawRow[POKEMON_NAME_COLUMN],
-                    new PokemonType[] { PokemonType.BUG },
+                    pokemonTypes,
                     pokemonRawRow[37],
                     Integer.parseInt(pokemonRawRow[HIT_POINTS]),
                     Integer.parseInt(pokemonRawRow[ATTACK]),

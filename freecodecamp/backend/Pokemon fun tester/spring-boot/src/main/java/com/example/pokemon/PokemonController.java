@@ -37,7 +37,7 @@ public class PokemonController {
   public Map<Integer, String> headerToNumberMap() {
     Map<Integer, String> headerToNumberMap = new HashMap<>();
     int i = 0;
-    for (String headerColumn : parser.getRawPokemonData().get(0)) {
+    for (String headerColumn : parser.getRawPokemonData().get(3)) {
         headerToNumberMap.put(i++, headerColumn);
     }
     return headerToNumberMap;
