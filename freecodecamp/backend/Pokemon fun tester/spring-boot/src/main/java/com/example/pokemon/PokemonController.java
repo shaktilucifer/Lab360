@@ -40,7 +40,7 @@ public class PokemonController {
     Map<Integer, String> headerToNumberMap = new HashMap<>();
     int i = 0;
     for (String headerColumn : parser.getRawPokemonData().get(3)) {
-        headerToNumberMap.put(i++, headerColumn);
+      headerToNumberMap.put(i++, headerColumn);
     }
     return headerToNumberMap;
   }
@@ -52,7 +52,8 @@ public class PokemonController {
 
   @GetMapping("/pokemons")
   public List<Pokemon> getPokemons() {
-    return parser.getPokemonList().stream().sorted((a, b) -> b.getSpecialAttack() - a.getSpecialAttack()).collect(Collectors.toList());
+    return parser.getPokemonList().stream().sorted((a, b) -> b.getSpecialAttack() - a.getSpecialAttack())
+        .collect(Collectors.toList());
   }
 
   @GetMapping("/pokemonListHeaders")
@@ -69,8 +70,8 @@ public class PokemonController {
   }
 
   @GetMapping("/pokemon")
-  public String[] getPokemon(@RequestParam String pokemonName) throws Exception {
-    return pokemonMap.get(pokemonName.toLowerCase());
+  public List<Pokemon> getPokemon(@RequestParam String pokemonName) throws Exception {
+    return parser.getPokemonList().stream().filter(i -> i.getName().equals(pokemonName)).collect(Collectors.toList());
   }
 
 }
