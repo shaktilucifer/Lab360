@@ -109,7 +109,6 @@ public class PokemonParserOpenCsv implements PokemonDataParser {
                 System.out.println(pokemonRawRow[TYPE2].toUpperCase());
                 System.out.println(e);
                 return null;
-                // TODO: handle exception
             }
             pokemons.add(new Pokemon(pokemonRawRow[POKEMON_NAME_COLUMN],
                     pokemonTypes,

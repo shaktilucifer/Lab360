@@ -31,8 +31,8 @@ public class PokemonController {
   }
 
   @RequestMapping("/")
-  public String[] helloWorld() throws Exception {
-    return parser.getRawPokemonData().get(0);
+  public List<String[]> helloWorld() throws Exception {
+    return parser.getRawPokemonData();
   }
 
   @RequestMapping("/debug")
@@ -43,11 +43,6 @@ public class PokemonController {
       headerToNumberMap.put(i++, headerColumn);
     }
     return headerToNumberMap;
-  }
-
-  @GetMapping("/pokemonList")
-  public List<String[]> getPokemonList() throws IOException, URISyntaxException, CsvException {
-    return PokemonDataBuilder.getPokemonList();
   }
 
   @GetMapping("/pokemons")
