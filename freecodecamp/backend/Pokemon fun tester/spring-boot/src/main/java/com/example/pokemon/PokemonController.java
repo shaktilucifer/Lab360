@@ -5,6 +5,8 @@ import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import javax.annotation.PostConstruct;
 
@@ -50,7 +52,7 @@ public class PokemonController {
 
   @GetMapping("/pokemons")
   public List<Pokemon> getPokemons() {
-    return parser.getPokemonList();
+    return parser.getPokemonList().stream().sorted((a, b) -> b.getSpecialAttack() - a.getSpecialAttack()).collect(Collectors.toList());
   }
 
   @GetMapping("/pokemonListHeaders")
