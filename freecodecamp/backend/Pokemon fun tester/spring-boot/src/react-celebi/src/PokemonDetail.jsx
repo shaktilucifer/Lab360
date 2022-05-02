@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import "./PokemonDetail.css";
 export function PokemonDetail() {
-  const pokemon = {};
+  let pokemon = {};
   useEffect(() => {
-    //   axios.get('')
+      axios.get('http://localhost:8080/pokemons').then((response) => console.log(response));
     pokemon = {
       pokemonName: "pikachu",
       pokemonType: ["electric", "fairy"],
