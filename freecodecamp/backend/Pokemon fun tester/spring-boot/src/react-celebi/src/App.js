@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <div className="App">
-        <h2>App Test</h2>
+        <h2>PokeDex</h2>
         <PokemonDetail />
     </div>
   );

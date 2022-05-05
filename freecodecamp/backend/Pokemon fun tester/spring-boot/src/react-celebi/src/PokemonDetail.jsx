@@ -10,7 +10,6 @@ export function PokemonDetail() {
      return types.join(', ')
   }
 
-  useEffect(() => {}, []);
   return (
     <div>
       {pokemons.map((pokemon) => {
