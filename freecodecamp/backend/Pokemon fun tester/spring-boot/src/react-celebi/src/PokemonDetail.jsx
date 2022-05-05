@@ -19,7 +19,14 @@ export function PokemonDetail() {
             <Card.Body>
                 {pokemon.name} ==
                 {formatType(pokemon.type)}
-                <p>{pokemon.hitPoints} - {pokemon.specialDefense} - {pokemon.defense} - {pokemon.attack} - {pokemon.specialAttack} - {pokemon.speed}</p>
+                <p>
+                HitPoints: {pokemon.hitPoints} - 
+                Special Defense: {pokemon.specialDefense} - 
+                Defense: {pokemon.defense} - 
+                Attack: {pokemon.attack} - 
+                Special Attack: {pokemon.specialAttack} - 
+                Speed: {pokemon.speed}
+                </p>
             </Card.Body>
           </Card>
         );
