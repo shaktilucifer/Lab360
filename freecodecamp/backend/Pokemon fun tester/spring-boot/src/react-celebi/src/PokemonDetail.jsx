@@ -2,9 +2,18 @@ import React, { useEffect, useState } from "react";
 import { usePokemonList } from "./hooks/usePokemonList.jsx";
 import "./PokemonDetail.css";
 import Card from 'react-bootstrap/Card';
+import { usePokemonDetails } from "./hooks/usePokemonDetails.jsx";
 
-export function PokemonDetail() {
+export function PokemonDetail({name}) {
   const { pokemons } = usePokemonList();
+  const [pokemon, setPokemon] = useState();
+  const getPokemonDetail = usePokemonDetails();
+  useEffect(() => {
+    getPokemonDetail(name)
+    .then((response) => {
+      setPokemon(response);
+    });
+  }, [name])
 
   const formatType = (types) => {
      return types.join(', ')
