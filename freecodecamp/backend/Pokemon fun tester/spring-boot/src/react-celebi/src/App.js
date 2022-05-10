@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
         <h2>PokeDex</h2>
-        {/* <PokemonDetail /> */}
+        <PokemonDetail />
         <PokemonList />
     </div>
   );
