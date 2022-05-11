@@ -4,16 +4,16 @@ import "./PokemonDetail.css";
 import Card from 'react-bootstrap/Card';
 import { usePokemonDetails } from "./hooks/usePokemonDetails.jsx";
 
-export function PokemonDetail({name}) {
+export function PokemonDetail({pokemonName}) {
   const { pokemons } = usePokemonList();
   const [pokemon, setPokemon] = useState();
   const getPokemonDetail = usePokemonDetails();
   useEffect(() => {
-    getPokemonDetail(name)
+    getPokemonDetail(pokemonName)
     .then((response: any) => {
       setPokemon(response);
     });
-  }, [name])
+  }, [pokemonName])
 
   const formatType = (types) => {
      return types.join(', ')
