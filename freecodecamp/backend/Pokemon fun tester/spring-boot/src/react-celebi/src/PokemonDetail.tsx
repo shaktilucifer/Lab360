@@ -10,7 +10,7 @@ export function PokemonDetail({name}) {
   const getPokemonDetail = usePokemonDetails();
   useEffect(() => {
     getPokemonDetail(name)
-    .then((response) => {
+    .then((response: any) => {
       setPokemon(response);
     });
   }, [name])
