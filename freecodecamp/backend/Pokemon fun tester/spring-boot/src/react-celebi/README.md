@@ -1,2 +1,2 @@
 ## Pokedex / Pokehub
-### data manupulation with pokemon data
+### Frontend for pokehub 
